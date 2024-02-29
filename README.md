@@ -1,73 +1,51 @@
-<p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="200" alt="Nest Logo" /></a>
-</p>
+# Projeto de Captura de Processos Judiciais
 
-[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
-[circleci-url]: https://circleci.com/gh/nestjs/nest
+Este é um projeto de exemplo que demonstra como criar um serviço para capturar processos judiciais por meio de um número de identificação único (CNJ). O objetivo deste README é fornecer uma visão geral das escolhas de tecnologia e da implementação do projeto.
 
-  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
-    <p align="center">
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
-<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
-<a href="https://coveralls.io/github/nestjs/nest?branch=master" target="_blank"><img src="https://coveralls.io/repos/github/nestjs/nest/badge.svg?branch=master#9" alt="Coverage" /></a>
-<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
-<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
-<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
-  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg"/></a>
-    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
-  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow"></a>
-</p>
-  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
-  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
+## Tecnologias Utilizadas
 
-## Description
+- NestJS: Um framework para construção de aplicativos Node.js escaláveis, eficientes e confiáveis. Foi escolhido devido à sua arquitetura modular, uso extensivo de TypeScript e integração fácil com bibliotecas populares.
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+- MongoDB e Mongoose: Banco de dados NoSQL para armazenamento dos processos judiciais. O Mongoose é uma ferramenta de modelagem de objetos MongoDB para Node.js, que fornece uma solução simples e baseada em esquema para modelar os dados da aplicação.
 
-## Installation
+- Jest: Framework de teste em JavaScript com um foco na simplicidade. Foi utilizado para escrever testes unitários e de integração para garantir a qualidade do código.
 
-```bash
-$ npm install
-```
+- Axios: Uma biblioteca HTTP client baseada em Promises para fazer requisições HTTP tanto do navegador quanto do Node.js. Foi utilizado para fazer chamadas de API externas para buscar os processos judiciais.
 
-## Running the app
+## Estrutura do Projeto
 
-```bash
-# development
-$ npm run start
+O projeto segue a seguinte estrutura de diretórios:
 
-# watch mode
-$ npm run start:dev
+src: Contém todo o código-fonte da aplicação.
 
-# production mode
-$ npm run start:prod
-```
+- process: Diretório relacionado ao serviço de processos judiciais.
+- process.controller.ts: Controlador responsável por lidar com as requisições HTTP relacionadas aos processos.
+- process.service.ts: Serviço que implementa a lógica de negócios para capturar processos judiciais.
+- process.model.ts: Definição do modelo de dados para os processos judiciais.
+- process.schema.ts: Definição do esquema Mongoose para os processos judiciais.
+- process.enum.ts: Enumerações relacionadas aos processos judiciais.
+- process.controller.spec.ts: Arquivo de teste unitário para o controlador de processos.
+- process.service.spec.ts: Arquivo de teste unitário para o serviço de processos.
+- app.module.ts: Módulo principal da aplicação onde os componentes são importados e configurados.
+- test: Contém os arquivos de configuração e utilitários de teste.
+- node_modules: Contém as dependências do projeto.
+- package.json: Arquivo de manifesto do projeto com as informações e dependências do projeto.
+- README.md: Este arquivo que você está lendo agora, que fornece uma visão geral do projeto.
+  Executando o Projeto
+  Para executar o projeto localmente, siga estas etapas:
 
-## Test
+Certifique-se de ter o Node.js e o MongoDB instalados em sua máquina.
+Clone este repositório para o seu ambiente local.
+No terminal, navegue até o diretório raiz do projeto.
+Execute npm install para instalar todas as dependências.
+Defina as variáveis de ambiente necessárias, como a chave da API, o endereço do MongoDB, etc.
+Execute npm start para iniciar o servidor.
+O servidor estará em execução em http://localhost:3000 por padrão.
 
-```bash
-# unit tests
-$ npm run test
+## Contribuindo
 
-# e2e tests
-$ npm run test:e2e
+Se você quiser contribuir para este projeto, sinta-se à vontade para abrir uma issue ou enviar uma solicitação de pull request. Estamos abertos a sugestões, correções de bugs e melhorias de código.
 
-# test coverage
-$ npm run test:cov
-```
+### Licença
 
-## Support
-
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
-
-## Stay in touch
-
-- Author - [Kamil Myśliwiec](https://kamilmysliwiec.com)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
-
-## License
-
-Nest is [MIT licensed](LICENSE).
+Este projeto está licenciado sob a MIT License.
