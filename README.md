@@ -42,6 +42,35 @@ Defina as variáveis de ambiente necessárias, como a chave da API, o endereço 
 Execute npm start para iniciar o servidor.
 O servidor estará em execução em http://localhost:3000 por padrão.
 
+## Rotas
+
+Capturar um processo por CNJ
+
+<curl --location 'http://localhost:3000/process/get-by-cnj' \
+--header 'api-key: 7fae0caf-060a-444c-a8ba-9d7966463700' \
+--header 'Content-Type: application/json' \
+--data '{
+"searchKey": "0002288-65.2010.5.02.0461"
+}'>
+
+Mover processo para outras listas sendo: backlog, discover, lead, deal e archived
+
+<curl --location --request POST 'http://localhost:3000/process/65e0bea7d15931b05469fb48/move/listName' \
+--header 'Content-Type: application/json' \
+--data ''>
+
+Abrir o processo com os detalhes dele
+
+<curl --location --request PUT 'http://localhost:3000/process/details-via-cnj/0002288-65.2010.5.02.0461/:requestId'>
+
+Encontrar todos os processos pela lista
+
+<curl --location 'http://localhost:3000/process/listname'>
+
+Encontrar todos os processos capturados e em que lista ele está:
+
+<curl --location 'http://localhost:3000/process/'>
+
 ## Contribuindo
 
 Se você quiser contribuir para este projeto, sinta-se à vontade para abrir uma issue ou enviar uma solicitação de pull request. Estamos abertos a sugestões, correções de bugs e melhorias de código.
