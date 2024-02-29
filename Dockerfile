@@ -1,19 +1,23 @@
-# Use a imagem oficial do Node.js como base
-FROM node:20.11.1
-# Defina o diretório de trabalho dentro do contêiner
+# Base image
+FROM node:16-alpine
+
+#env
+ENV MONGO_INITDB_ROOT_USERNAME=root
+ENV MONGO_INITDB_ROOT_PASSWORD=82384580vV!
+ENV DATABASE_URI=mongodb+srv://root:82384580vV!@judit.mswln4j.mongodb.net/?retryWrites=true&w=majority&appName=judit
+ENV APIKEY=7fae0caf-060a-444c-a8ba-9d7966463700
+
+# Create app directory
 WORKDIR /app
 
-# Copie o arquivo package.json e o arquivo package-lock.json (se houver) para o diretório de trabalho
+# A wildcard is used to ensure both package.json AND package-lock.json are copied
 COPY package*.json ./
 
-# Instale as dependências da aplicação
+# Install app dependencies
 RUN npm install
 
-# Copie o restante do código da aplicação para o diretório de trabalho
+# Bundle app source
 COPY . .
 
-# Exponha a porta em que a aplicação está sendo executada
-EXPOSE 3000
-
-# Comando para iniciar a aplicação quando o contêiner for iniciado
-CMD ["npm", "run", "start:dev"]
+# Creates a "dist" folder with the production build
+RUN npm run build

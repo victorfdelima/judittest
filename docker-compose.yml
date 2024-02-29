@@ -1,31 +1,22 @@
 version: '3.8'
-
 services:
-  api:
-    build: 
-      context: .
-      dockerfile: Dockerfile
-    ports:
-      - '3000:3000'
-    environment:
-      MONGO_URI: mongodb://mongo:27017/teste
-      APIKEY: "7fae0caf-060a-444c-a8ba-9d7966463700"
+  api: 
+    build: .
     volumes:
       - .:/app
-    networks:
-      - backend
-    depends_on:
-      - mongo
-
-  mongo:
-    image: mongo
+      - /app/node_modules
     ports:
-      - '27018:27018'
-    environment:
-      MONGO_INITDB_DATABASE: teste
+      - 3000:3000
+    command: npm run start:dev
     networks:
-      - backend
+      - bridge
+    environment:
+      DATABASE_URI: mongodb+srv://root:82384580vV!@judit.mswln4j.mongodb.net/?retryWrites=true&w=majority&appName=judit
+      APIKEY: 7fae0caf-060a-444c-a8ba-9d7966463700
 
 networks:
-  backend:
+  bridge:
     driver: bridge
+
+volumes:
+  mongodb_data_container:

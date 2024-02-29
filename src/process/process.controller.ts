@@ -11,7 +11,7 @@ export class ProcessController {
 
     constructor(private readonly processService: ProcessService) { }
 
-    @Post('capturar-via-cnj')
+    @Post('get-by-cnj')
     async getProcessByCnjs(@Body('searchKey') searchKey: string) {
         return this.processService.getProcessByCnj(searchKey);
     }

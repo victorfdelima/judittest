@@ -8,7 +8,7 @@ import { Process, ProcessSchema } from './process/entities/process.model';
 
 @Module({
   imports: [
-    MongooseModule.forRoot('mongodb://localhost:27017/teste', {
+    MongooseModule.forRoot(process.env.DATABASE_URI, {
       autoCreate: true,
     }),
     MongooseModule.forFeature([{ name: Process.name, schema: ProcessSchema }]),
