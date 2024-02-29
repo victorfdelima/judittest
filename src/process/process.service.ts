@@ -52,6 +52,12 @@ export class ProcessService {
     async getProcessByCnj(searchKey: string): Promise<Process> {
         const apiKey = process.env.APIKEY
 
+        const existingProcess = await this.processModel.findOne({ cnj: searchKey }).exec();
+
+        if (existingProcess) {
+            return existingProcess;
+        }
+
         const requestData = {
             search: {
                 search_type: 'lawsuit_cnj',

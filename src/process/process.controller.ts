@@ -2,7 +2,10 @@ import { Body, Controller, Get, Param, Post, Put } from '@nestjs/common';
 import { ProcessService } from './process.service';
 import { Process } from './entities/process.model';
 import { ProcessStage } from './enum/stage.enum';
+import { ApiTags } from '@nestjs/swagger';
 
+
+@ApiTags('processos')
 @Controller('process')
 export class ProcessController {
 
