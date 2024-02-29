@@ -11,6 +11,9 @@ export class ProcessMovement extends Document {
 
     @Prop()
     timestamp: Date;
+
+    @Prop()
+    message: string;
 }
 
 export const ProcessMovementSchema = SchemaFactory.createForClass(ProcessMovement);

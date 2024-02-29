@@ -30,7 +30,7 @@ describe('ProcessController', () => {
 
   it('should capture process by CNJ', async () => {
     const searchKey = '0817064-37.2023.8.19.0209';
-    await controller.capturarProcessoViaCNJ(searchKey);
+    await controller.getProcessByCnjs(searchKey);
 
     // Verifica se o método do serviço foi chamado
     expect(processServiceMock.getProcessByCnj).toHaveBeenCalledWith(searchKey);
