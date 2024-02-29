@@ -37,9 +37,7 @@ src: Contém todo o código-fonte da aplicação.
 Certifique-se de ter o Node.js e o MongoDB instalados em sua máquina.
 Clone este repositório para o seu ambiente local.
 No terminal, navegue até o diretório raiz do projeto.
-Execute npm install para instalar todas as dependências.
-Defina as variáveis de ambiente necessárias, como a chave da API, o endereço do MongoDB, etc.
-Execute npm start para iniciar o servidor.
+Execute docker-compose up -d
 O servidor estará em execução em http://localhost:3000 por padrão.
 
 ## Rotas
